@@ -30,6 +30,7 @@ In a new console window, and in a new directory:
 1. Clone the scenevr-web repo: https://github.com/bnolan/scenevr-web.git
 1. `cd scenevr-web`
 1. `npm install`
+1. `npm install -g coffee-script`
 1. `npm start`
 
 You should now be able to open `localhost:9000` in your browser to see a list of scenes. You can edit these scenes in your favourite text editor, and when you hit save, the scene will automatically reload in your client.
