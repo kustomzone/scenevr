@@ -3,18 +3,20 @@
 var IndexScene, PORT, Reflector, Scene, Server, WebsocketServer, cors, express, fs, glob, http, path, scenePath,
   __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-var _ = require('underscore');
+var _ = 			require('underscore');
 
-Reflector = require('./lib/reflector');
-WebsocketServer = require('./lib/websocket_server');
-Scene = require('./elements/scene');
-IndexScene = require('./lib/index_scene');
-path = require('path');
-fs = require('fs');
-glob = require('glob');
-express = require('express');
-http = require("http");
-cors = require('cors');
+Reflector = 		require('./lib/reflector');
+WebsocketServer = 	require('./lib/websocket_server');
+Scene = 			require('./elements/scene');
+IndexScene = 		require('./lib/index_scene');
+
+path = 				require('path');
+fs = 				require('fs');
+glob = 				require('glob');
+express = 			require('express');
+http = 				require("http");
+cors = 				require('cors');
+
 PORT = process.env.PORT || 8080;
 
 function Server(folder, port) {
@@ -29,6 +31,7 @@ function Server(folder, port) {
   this.webServer.use(express["static"](this.folder));
   httpServer = http.createServer(this.webServer);
   httpServer.listen(port);
+  console.log("[websocket] Connecting websocket folder at " + this.folder + "...");
   this.websocketServer = new WebsocketServer(httpServer);
   this.websocketServer.listen();
   this.restart = _.throttle(this.restartServer, 1000);

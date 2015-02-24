@@ -53,12 +53,16 @@
   </div>
 
   <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?autoload=false"></script>
-  <script src="/javascripts/jquery.js"></script>
+  <script src="/js/jquery.js"></script>
 
   <script>
-    var socket = new WebSocket("ws://scenevr-demo.herokuapp.com/hello.xml", "scenevr");
+    // var socket = new WebSocket("ws://scenevr-demo.herokuapp.com/hello.xml", "scenevr");
+	
+	var socket = new WebSocket("http://client.scenevr.com/?connect=localhost:8080/hello.xml", "scenevr");
 
-    $("<div />").text("Connecting to ws://scenevr-demo.herokuapp.com/hello.xml...").appendTo('#messages');
+    // $("<div />").text("Connecting to ws://scenevr-demo.herokuapp.com/hello.xml...").appendTo('#messages');
+	
+	$("<div />").text("Connecting to http://client.scenevr.com/?connect=localhost:8080/hello.xml...").appendTo('#messages');
 
     socket.onopen = function(){
       $("<div />").text("Connected.").appendTo('#messages');
